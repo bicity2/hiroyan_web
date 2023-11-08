@@ -27,13 +27,18 @@
     </div>
 
     <script>
-        // JavaScriptコードを直接HTML内に記述
         const taskInput = document.getElementById("taskInput");
         const taskList = document.getElementById("taskList");
+
+        // ローカルストレージからタスクを読み込む
+        const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
         function addTask() {
             const taskText = taskInput.value;
             if (taskText) {
+                storedTasks.push(taskText);
+                localStorage.setItem("tasks", JSON.stringify(storedTasks));
+
                 const listItem = document.createElement("li");
                 listItem.textContent = taskText;
                 taskList.appendChild(listItem);
@@ -46,6 +51,13 @@
                 addTask();
             }
         });
+
+        // ページ読み込み時に保存されたタスクを表示
+        for (const task of storedTasks) {
+            const listItem = document.createElement("li");
+            listItem.textContent = task;
+            taskList.appendChild(listItem);
+        }
     </script>
 </body>
 </html>
