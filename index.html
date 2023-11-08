@@ -2,16 +2,25 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Web Page</title>
+    <title>JavaScript Sample</title>
 </head>
 <body>
     <h1 id="myText">Hello, World!</h1>
-    <button onclick="changeText()">Change Text</button>
+    <button id="changeTextButton">Change Text</button>
 
     <script>
+        // ボタンクリック時に呼び出される関数
         function changeText() {
-            document.getElementById("myText").innerHTML = "Hello, JavaScript!";
+            // h1要素を取得
+            var textElement = document.getElementById("myText");
+
+            // テキストを変更
+            textElement.innerHTML = "Hello, JavaScript!";
         }
+
+        // ボタンにクリックイベントリスナーを追加
+        var buttonElement = document.getElementById("changeTextButton");
+        buttonElement.addEventListener("click", changeText);
     </script>
 </body>
 </html>
