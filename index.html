@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>My Web Page</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <h1 id="myText">Hello, World!</h1>
+    <button onclick="changeText()">Change Text</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("myText").innerHTML = "Hello, JavaScript!";
+        }
+    </script>
 </body>
 </html>
